@@ -1,0 +1,130 @@
+/* Component controls; load after the existing charcoal / violet theme. */
+:root {
+  --ui-control: #292932;
+  --ui-control-hover: #353540;
+  --ui-control-border: #656574;
+  --ui-control-border-hover: #8b8b9b;
+  --ui-focus: #b89bff;
+  --ui-danger: #f4a2ad;
+  --ui-chevron: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='m4 6 4 4 4-4' stroke='%23c7c7d2' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+}
+
+/* Media thumbnails and chapter cards keep their existing dimensions and surfaces. */
+body button.ui-btn,
+body dialog button:where(:not(.preview, .wf-result-preview, .sp-thumb, .material-image, .ref-preview, .sp-chapter, .studio-clip, .new-options button)) {
+  display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+  box-sizing: border-box; min-width: 0; max-width: 100%; height: 36px; min-height: 36px; padding: 0 12px;
+  border: 1px solid var(--ui-control-border); border-radius: 6px; background: var(--ui-control); color: var(--ink);
+  box-shadow: 0 1px 2px #0002; font-family: inherit; font-size: 14px; font-weight: 500; line-height: 20px;
+  text-align: center; vertical-align: middle; white-space: nowrap; cursor: pointer;
+  transition: background-color 150ms ease, border-color 150ms ease, color 150ms ease;
+}
+body button.ui-btn > .ui-icon { width: 16px; height: 16px; flex: none; pointer-events: none; }
+body button.ui-btn.ui-btn-sm { height: 32px; min-height: 32px; padding: 0 10px; font-size: 13px; }
+body button.ui-btn.ui-btn-xs { height: 28px; min-height: 28px; padding: 0 8px; font-size: 13px; }
+body button.ui-btn.ui-btn-icon { width: 32px; height: 32px; min-height: 32px; padding: 0; flex: none; }
+body button.ui-btn:is(.ui-btn-sm, .ui-btn-xs) > .ui-icon { width: 14px; height: 14px; }
+body button.ui-btn:hover:not(:disabled, [aria-disabled="true"]),
+body dialog button:where(:not(.preview, .wf-result-preview, .sp-thumb, .material-image, .ref-preview, .sp-chapter, .studio-clip, .new-options button)):hover:not(:disabled) { background: var(--ui-control-hover); border-color: var(--ui-control-border-hover); color: #fff; }
+body button.ui-btn:active:not(:disabled, [aria-disabled="true"]) { background: #202029; }
+body button.ui-btn.ui-btn-primary, body dialog button.primary { background: var(--accent-solid); border-color: #a17aef; color: #fff; font-weight: 600; }
+body button.ui-btn.ui-btn-primary:hover:not(:disabled, [aria-disabled="true"]), body dialog button.primary:hover:not(:disabled) { background: #8859e8; border-color: #c4a5ff; color: #fff; }
+body button.ui-btn.ui-btn-primary:active:not(:disabled, [aria-disabled="true"]), body dialog button.primary:active:not(:disabled) { background: #7546d8; }
+body button.ui-btn.ui-btn-secondary { background: var(--ui-control); border-color: var(--ui-control-border); color: var(--ink); }
+body button.ui-btn.ui-btn-secondary:hover:not(:disabled, [aria-disabled="true"]) { background: var(--ui-control-hover); border-color: var(--ui-control-border-hover); }
+body button.ui-btn.ui-btn-secondary:active:not(:disabled, [aria-disabled="true"]) { background: #202029; }
+body button.ui-btn.ui-btn-ghost, body dialog button.link, body dialog .dialog-head button.close { background: transparent; border-color: transparent; color: var(--muted); box-shadow: none; }
+body button.ui-btn.ui-btn-ghost:hover:not(:disabled, [aria-disabled="true"]), body dialog button.link:hover:not(:disabled), body dialog .dialog-head button.close:hover:not(:disabled) { background: #ffffff0d; border-color: #ffffff17; color: var(--ink); }
+body button.ui-btn.ui-btn-danger, body dialog button.danger { background: #3d242e; border-color: #8d515e; color: var(--ui-danger); box-shadow: none; }
+body button.ui-btn.ui-btn-danger:hover:not(:disabled, [aria-disabled="true"]), body dialog button.danger:hover:not(:disabled) { background: #512d39; border-color: #be7585; color: #ffc1ca; }
+
+/* Override legacy dense-toolbar padding and the old AI-specific violet background. */
+body .studio-command .gw-compose-bar button.ui-btn-primary { padding: 0 12px; font-size: 14px; }
+body .studio-command .gw-compose-bar button.ui-btn-sm { height: 32px; min-height: 32px; padding: 0 10px; font-size: 13px; }
+body .wf-main .field-head button.ui-btn-ai { background: var(--ui-control); border-color: var(--ui-control-border); color: var(--ink); }
+body .wf-main .field-head button.ui-btn-ai:hover:not(:disabled) { background: var(--ui-control-hover); border-color: var(--ui-control-border-hover); }
+body .studio-prompt-meta button.ui-expand { height: 28px; min-height: 28px; padding: 0 8px; margin: 0; }
+body button.ui-btn.ui-expand { gap: 5px; }
+body button.ui-expand > .ui-icon:last-child { width: 14px; height: 14px; opacity: .8; }
+body button.ui-btn:disabled, body button.ui-btn[aria-disabled="true"],
+body dialog button:where(:not(.preview, .wf-result-preview, .sp-thumb, .material-image, .ref-preview, .sp-chapter, .studio-clip)):disabled,
+body .wf-main .field-head button.ui-btn-ai:disabled { background: #24242d; border-color: #454551; color: #9292a3; opacity: 1; box-shadow: none; cursor: not-allowed; }
+body button.ui-btn.ui-btn-primary:disabled, body button.ui-btn.ui-btn-primary[aria-disabled="true"], body dialog button.primary:disabled { background: #3d3155; border-color: #66557f; color: #c4b8d8; }
+body button.ui-btn.ui-btn-ghost:disabled, body button.ui-btn.ui-btn-ghost[aria-disabled="true"] { background: transparent; border-color: transparent; color: #777786; }
+body button.ui-btn:is([aria-busy="true"], .is-loading, .ui-btn-loading) { cursor: progress; pointer-events: none; }
+body button.ui-btn:is([aria-busy="true"], .is-loading, .ui-btn-loading)::before { content: ''; width: 14px; height: 14px; flex: none; border: 2px solid currentColor; border-right-color: transparent; border-radius: 50%; animation: ui-control-spin 750ms linear infinite; }
+body button.ui-btn:is([aria-busy="true"], .is-loading, .ui-btn-loading) > .ui-icon:first-child { display: none; }
+@keyframes ui-control-spin { to { transform: rotate(360deg); } }
+
+body select.ui-select, body dialog select {
+  appearance: none; -webkit-appearance: none; box-sizing: border-box; min-width: 0; max-width: 100%; height: 36px; min-height: 36px; padding: 0 32px 0 10px;
+  border: 1px solid var(--ui-control-border); border-radius: 6px; background-color: var(--surface-input);
+  background-image: var(--ui-chevron); background-repeat: no-repeat; background-size: 16px; background-position: right 9px center;
+  color: var(--ink); box-shadow: 0 1px 2px #0002; font-family: inherit; font-size: 14px; font-weight: 400; line-height: 20px; text-overflow: ellipsis; cursor: pointer;
+}
+body select.ui-select.ui-select-sm, body .studio-shot-tools select.ui-select, body .studio-composer-tools select.ui-select { height: 32px; min-height: 32px; font-size: 13px; }
+body select.ui-select:hover:not(:disabled), body dialog select:hover:not(:disabled) { background-color: #1c1c25; border-color: var(--ui-control-border-hover); }
+body select.ui-select:disabled, body dialog select:disabled { background-color: #24242d; border-color: #454551; color: #9292a3; cursor: not-allowed; opacity: 1; }
+body select.ui-select option, body dialog select option { background: var(--surface-input); color: var(--ink); }
+/* The existing label rules use !important padding; leave room for a native select arrow. */
+body .sp-version select.sp-label { appearance: none; -webkit-appearance: none; height: 32px; min-height: 32px; padding: 0 23px 0 7px !important; border-radius: 6px !important; background-image: var(--ui-chevron); background-size: 14px; background-position: right 5px center; background-repeat: no-repeat; font-size: 13px; font-weight: 500; line-height: 20px; cursor: pointer; }
+body .sp-version select.sp-label[data-label="待预览"] { color: #b9b9c6; background-color: #272731; }
+body .sp-version select.sp-label[data-label="待选用"] { color: #a9c5fb; background-color: #202d46; }
+body .sp-version select.sp-label[data-label="已选用"] { color: #8ae0b5; background-color: #193c2d; }
+body .sp-version select.sp-label[data-label="需修改"] { color: #f0bd79; background-color: #493019; }
+body .sp-version select.sp-label[data-label="已弃用"] { color: #f3a3ad; background-color: #46232f; }
+
+body details.ui-menu { position: relative; flex: none; }
+body details.ui-menu > summary { display: inline-flex; align-items: center; justify-content: center; gap: 5px; width: auto; min-width: 66px; height: 32px; padding: 0 9px; border: 1px solid var(--ui-control-border); border-radius: 6px; background: var(--ui-control); color: var(--ink); box-shadow: 0 1px 2px #0002; font-size: 13px; font-weight: 500; line-height: 20px; list-style: none; cursor: pointer; user-select: none; }
+body details.ui-menu > summary::-webkit-details-marker { display: none; }
+body details.ui-menu > summary::marker { content: ''; }
+body details.ui-menu > summary > .ui-icon { width: 16px; height: 16px; flex: none; }
+body details.ui-menu[open] > summary, body details.ui-menu > summary:hover { background: var(--ui-control-hover); border-color: var(--ui-control-border-hover); color: #fff; }
+body details.ui-menu > .studio-more-menu { top: calc(100% + 6px); right: 0; z-index: 20; width: 168px; max-width: calc(100vw - 24px); padding: 8px; border: 1px solid #656574; border-radius: 8px; background: #292932; box-shadow: 0 10px 24px #0006, 0 2px 6px #0003; }
+body details.ui-menu .studio-more-menu button { display: flex; align-items: center; justify-content: flex-start; gap: 8px; width: 100%; height: 32px; min-height: 32px; padding: 0 8px; border: 0; border-radius: 4px; background: transparent; color: var(--ink); box-shadow: none; font-size: 13px; font-weight: 400; line-height: 20px; text-align: left; }
+body details.ui-menu .studio-more-menu button > .ui-icon { width: 15px; height: 15px; flex: none; color: var(--muted); }
+body details.ui-menu .studio-more-menu button:hover:not(:disabled) { background: #41414e; color: #fff; }
+body details.ui-menu .studio-more-menu button:disabled { background: transparent; color: #777786; cursor: not-allowed; }
+body details.ui-menu .studio-more-menu button:disabled > .ui-icon { color: #777786; }
+body details.ui-menu .studio-more-menu button.studio-delete { margin-top: 5px; border-top: 1px solid #555563; border-radius: 0 0 4px 4px; color: var(--ui-danger); }
+body details.ui-menu .studio-more-menu button.studio-delete > .ui-icon { color: currentColor; }
+body details.ui-menu .studio-more-menu button.studio-delete:hover:not(:disabled) { background: #3d242e; color: #ffc1ca; }
+
+/* The segmented filter stays within the existing reference shelf width. */
+body .studio-material-filters { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 2px; margin: 0 10px 12px; padding: 3px; border: 1px solid #4d4d5b; border-radius: 7px; background: #1a1a22; }
+body .studio-material-filters button { display: inline-flex; align-items: center; justify-content: center; min-width: 0; width: 100%; height: 30px; min-height: 30px; padding: 0 2px; border: 1px solid transparent; border-radius: 4px; background: transparent; color: var(--muted); box-shadow: none; font-size: 13px; font-weight: 500; line-height: 20px; }
+body .studio-material-filters button:hover { background: #2d2d38; color: var(--ink); border-color: transparent; }
+body .studio-material-filters button.active, body .studio-material-filters button[aria-pressed="true"] { background: #453553; color: #f0e4ff; border-color: #8564a4; box-shadow: 0 1px 3px #0003; }
+
+body dialog { border: 1px solid #656574; border-radius: 10px; background: var(--surface); color: var(--ink); box-shadow: 0 20px 70px #0008; }
+body dialog::backdrop { background: #08080dc9; backdrop-filter: blur(6px); }
+body dialog .dialog-head { gap: 12px; border-color: #454552; padding: 16px 24px; }
+body dialog .dialog-head h2 { min-width: 0; font-size: 16px; font-weight: 600; line-height: 24px; }
+body dialog .dialog-head button.close { width: 32px; height: 32px; min-height: 32px; flex: none; padding: 0; border: 1px solid transparent; border-radius: 6px; }
+body dialog .dialog-head button.close > .ui-icon { width: 17px; height: 17px; }
+body dialog .dialog-footer { gap: 12px; border-color: #454552; padding: 14px 24px; background: #1b1b23; }
+body dialog .dialog-footer > span { min-width: 0; }
+body dialog .dialog-footer > div { display: flex; align-items: center; justify-content: flex-end; gap: 8px; flex-wrap: wrap; }
+
+body button.ui-btn:focus-visible, body select.ui-select:focus-visible, body .sp-version select.sp-label:focus-visible,
+body details.ui-menu > summary:focus-visible, body details.ui-menu .studio-more-menu button:focus-visible,
+body .studio-material-filters button:focus-visible, body dialog button:focus-visible, body dialog select:focus-visible { outline: 2px solid var(--ui-focus); outline-offset: 2px; box-shadow: 0 0 0 2px var(--canvas); }
+body select.ui-select:focus-visible, body dialog select:focus-visible { border-color: var(--ui-focus); }
+
+@media (max-width: 650px) {
+  body .studio-shot-tools { min-width: 0; flex-wrap: wrap; gap: 6px; }
+  body .studio-shot-tools select.ui-select { flex: 0 1 auto; max-width: 100%; }
+  body .studio-composer-tools > .row, body .studio-command .gw-compose-bar .row, body .studio-prompt > .field-head > .row { min-width: 0; flex-wrap: wrap; }
+  body .studio-prompt > .field-head > .row { gap: 5px; }
+  body .studio-prompt-meta { flex-wrap: wrap; }
+  body details.ui-menu { margin-left: auto; }
+  body dialog .dialog-head { padding: 14px 16px; }
+  body dialog .dialog-body { padding: 16px; }
+  body dialog .dialog-footer { flex-wrap: wrap; justify-content: flex-end; gap: 10px; padding: 12px 16px; }
+  body dialog .dialog-footer > span:not(:empty) { flex-basis: 100%; }
+  body dialog .dialog-footer button { white-space: normal; height: auto; min-height: 36px; padding-top: 7px; padding-bottom: 7px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  body button.ui-btn, body select.ui-select, body details.ui-menu > summary { transition: none; }
+  body button.ui-btn:is([aria-busy="true"], .is-loading, .ui-btn-loading)::before { animation: none; border-style: dotted; }
+}

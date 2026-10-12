@@ -1,0 +1,45 @@
+@media(min-width:1151px){body .reference-workspace{grid-template-columns:208px minmax(0,1fr)}}
+body .reference-shot-list{padding:12px 6px 14px;background:#0c1926;border:1px solid #1d3043;border-radius:10px;gap:0;height:calc(100vh - 335px);min-height:560px}
+body .reference-shot-list>.row{padding:0 10px;min-height:32px;gap:10px}.reference-shot-list>.row>b{font-size:17px;line-height:26px}.reference-shot-list>.row>button{width:34px;height:34px;min-width:34px;min-height:34px;padding:5px;background:#101b29;border:1px solid #233149;border-radius:6px}.navigation-drag-hint{font-size:12px;color:#b1bfe2;margin:6px 10px 12px;line-height:20px;white-space:nowrap}
+body .reference-shot-items{gap:5px;padding:0;overflow-x:hidden;overflow-y:auto;min-height:0;margin:0 0 14px}
+body .reference-nav-item{display:flex;align-items:center;position:relative;flex:0 0 82px;min-height:82px;box-sizing:border-box;border:1px solid transparent;border-radius:8px;background:transparent;padding:4px 7px;gap:10px}
+body .reference-nav-item.selected{background:#1a112c;border:1px solid #c147f4;box-shadow:inset 0 0 0 1px #8530b5}
+body .reference-nav-item:not(.selected):hover{background:#122336;border-color:#354763}
+body .navigation-drag-handle{display:grid;place-items:center;flex:0 0 20px;width:20px;height:40px;padding:2px;border:0;background:transparent;color:#b5c0d4;cursor:grab;touch-action:none;border-radius:4px}
+.navigation-drag-handle svg{width:12px;height:24px}.navigation-drag-handle:active{cursor:grabbing}.navigation-drag-handle:hover{color:#eee5ff}
+body .reference-nav-item>button[data-reference-shot]{display:grid;grid-template-columns:70px minmax(0,1fr);gap:7px;align-items:center;position:relative;width:auto;flex:1;min-width:0;height:72px;padding:0;background:transparent;border:0;border-radius:0}
+body .reference-nav-item .shot-photo{width:70px;height:70px;object-fit:cover;border-radius:6px;overflow:hidden}
+body .reference-nav-item>button[data-reference-shot]>b{left:2px;bottom:3px;padding:1px 4px;background:#090b11dc;border-radius:3px;color:white;font-size:14px;line-height:20px}
+body .reference-nav-state{gap:9px;min-width:0;align-items:center;justify-content:center}.reference-nav-state i{width:21px;height:21px;border:2px solid #bfccdb;background:transparent;font-size:13px;font-style:normal;line-height:17px}
+.selected .reference-nav-state i{background:#9e28f2;border-color:#9e28f2;color:#fff}
+body .reference-nav-state .studio-status{padding:2px 6px;border-radius:5px;font-size:11px;line-height:17px;white-space:nowrap;border:1px solid transparent}
+body .reference-nav-item[data-navigation-status=ready] .studio-status{color:#d6d7ff;background:#1d2553;border-color:#263267}
+body .reference-nav-item[data-navigation-status=source] .studio-status{color:#c5e7ff;background:#13384b;border-color:#24556b}
+body .reference-nav-item[data-navigation-status=idle] .studio-status{color:#f2ce94;background:#3c2c15;border-color:#684719}
+body .reference-nav-item[data-navigation-status=busy] .studio-status{color:#dfbfff;background:#332045;border-color:#69418c}
+body .reference-nav-item[data-navigation-status=review] .studio-status{color:#bccfff;background:#1a2b49;border-color:#375580}
+body .reference-nav-item .reference-nav-delete{right:3px;top:2px;z-index:5;width:20px;height:20px;padding:0;line-height:18px;background:#1b1427;border:1px solid #634777;border-radius:4px}
+body .reference-nav-item.navigation-drop-target{border-color:#d088fa;background:#2c1a41}
+body .reference-shot-list .gw-compose-bar{margin:auto 10px 0!important;padding:0!important;flex-shrink:0}
+body .reference-shot-list .gw-compose-bar>.row{width:100%;margin:0}
+body .reference-shot-list .gw-compose-bar .primary{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;height:62px;min-height:62px;padding:0 8px;font-size:19px;font-weight:600;border-radius:8px;background:linear-gradient(135deg,#923bf4,#5100ff)!important;border-color:#7534cb!important}
+body .reference-shot-list .gw-compose-bar .primary>.ui-icon{width:24px;height:24px}body .reference-shot-list .gw-compose-bar .primary:disabled{background:#282235!important;border-color:#493b59!important;color:#a698b8!important}
+@media(max-width:1150px) and (min-width:701px){body .reference-workspace{grid-template-columns:188px minmax(0,1fr)}body .reference-nav-item{gap:6px;padding-left:5px;padding-right:5px}body .reference-nav-item>button[data-reference-shot]{grid-template-columns:64px minmax(0,1fr)}body .reference-nav-item .shot-photo{width:64px;height:70px}.navigation-drag-hint{font-size:11px}.reference-shot-list>.row>b{font-size:15px}}
+@media(max-width:700px){body .reference-shot-list{min-height:0;height:auto}body .reference-shot-items{margin-bottom:10px;overflow-x:auto}body .reference-nav-item{flex-basis:168px}body .reference-shot-list .gw-compose-bar .primary{height:44px;min-height:44px;font-size:15px}.navigation-drag-hint{white-space:normal}body .navigation-drag-handle{width:24px;flex-basis:24px}}
+/* Override the former first-child thumbnail rule now that the grip leads the row. */
+body .reference-nav-item>button.navigation-drag-handle{display:grid!important;grid-template-columns:none!important;place-items:center!important;width:20px!important;min-width:20px!important;max-width:20px!important;height:40px!important;min-height:40px!important;flex:0 0 20px!important;padding:0!important;border:0!important;background:transparent!important}
+body .reference-nav-state .studio-status:before{display:none!important}
+@media(max-width:700px){body .reference-nav-item>button.navigation-drag-handle{width:24px!important;min-width:24px!important;max-width:24px!important;flex-basis:24px!important}}
+body .navigation-video-preview{position:fixed;z-index:120;pointer-events:none;border:1px solid #a24ed4;border-radius:10px;overflow:hidden;background:#0d1420;box-shadow:0 14px 38px #080b129e;padding:0}
+body .navigation-video-preview video{display:block;width:100%;height:100%;object-fit:cover;background:#0d1420}
+body .reference-current-shot .studio-shot-name{gap:12px!important;flex-wrap:wrap;min-width:0}
+body .reference-current-shot .studio-shot-time{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:12px;line-height:20px;font-variant-numeric:tabular-nums;color:#b7a9cb}
+.shot-source-timestamp{color:#d1c4e2}.shot-time-separator{color:#786988}
+body .reference-current-shot .studio-shot-header{height:auto!important;min-height:50px;flex-wrap:wrap;row-gap:8px}
+
+body .reference-current-shot .studio-shot-time{font-size:14px!important;line-height:22px;color:#c6b8d9}.shot-source-timestamp{color:#e0d4ed}
+
+/* Navigation thumbnails must participate in the grid, including atlas spans. */
+body .reference-nav-item>button[data-reference-shot]>.shot-photo{position:static!important;inset:auto!important;left:auto!important;top:auto!important;transform:none!important;grid-column:1!important;grid-row:1!important;justify-self:start;align-self:center;display:block;aspect-ratio:auto;max-width:100%;margin:0}
+body .reference-nav-item>button[data-reference-shot]>.reference-nav-state{position:static!important;grid-column:2!important;grid-row:1!important;transform:none!important;min-width:0;width:100%;margin:0}
+body .reference-nav-item>button[data-reference-shot]>b{position:absolute;z-index:2;left:2px;bottom:3px;pointer-events:none}

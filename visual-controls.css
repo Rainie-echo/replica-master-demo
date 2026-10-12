@@ -1,0 +1,240 @@
+/* Approved visual refinement: quiet rails, readable controls, focused violet actions. */
+:root {
+  --canvas: #111117;
+  --surface: #202029;
+  --surface-raised: #2d2d39;
+  --surface-input: #14141c;
+  --field: var(--surface-input);
+  --ink: #f4f3f8;
+  --body: #dedce7;
+  --muted: #b4b1c2;
+  --line: #3d3c49;
+  --line-strong: #656172;
+  --ui-control: #2b2935;
+  --ui-control-hover: #373340;
+  --ui-control-border: #5c576b;
+  --ui-control-border-hover: #82798f;
+  --rail: #16161e;
+}
+
+body { background: var(--canvas); }
+body header {
+  height: 56px;
+  padding: 0 20px;
+  gap: 30px;
+  background: #17171f;
+  border-bottom: 1px solid #383542;
+  backdrop-filter: none;
+}
+body .brand { gap: 9px; font-size: 21px; letter-spacing: -.4px; }
+body .brand em { color: #cbc4dc; font-size: 15px; }
+body .brand-mark {
+  width: 28px; height: 28px; border-radius: 7px;
+  border: 1px solid #76618f; background: #30273e; color: #d3bbff;
+}
+body header nav { gap: 5px; }
+body header nav button {
+  height: 34px; padding: 0 13px; border: 1px solid transparent;
+  border-radius: 6px; background: transparent; color: var(--muted); box-shadow: none;
+  font-size: 14px; font-weight: 500;
+}
+body header nav button.active {
+  background: #30273f; border-color: #594769; color: #eadcff; box-shadow: none;
+}
+body header nav button:not(.active):hover { border-color: transparent; background: #282630; color: var(--ink); }
+body header > .link { padding: 6px 8px; border-radius: 5px; color: var(--muted); }
+body header .demo { color: #b4afc3; }
+
+body .shell { grid-template-columns: 192px minmax(0, 1fr); }
+body .work-layout:has(.studio-work[data-workflow-tab="制作"]),
+body .work-layout:has(.studio-work[data-workflow-tab="批量"]) { grid-template-columns: minmax(0, 1fr) 208px; }
+body .task-sidebar {
+  top: 56px; height: calc(100vh - 56px); padding: 18px 11px;
+  background: var(--rail); border-right-color: #36333f;
+}
+body .aside-head { margin-bottom: 14px; gap: 4px; color: #d9d4e4; font-size: 13px; font-weight: 600; }
+body .aside-head .link { padding: 3px 2px; font-size: 13px; white-space: nowrap; }
+body .aside-head .link, body .upload-entry, body .tm-trash-entry, body .task-sidebar [data-action="undoTaskMove"] {
+  display: inline-flex; align-items: center; justify-content: center; gap: 4px;
+}
+body .aside-head .link .ui-icon { width: 14px; height: 14px; }
+body .upload-entry .ui-icon, body .tm-trash-entry .ui-icon, body .task-sidebar [data-action="undoTaskMove"] .ui-icon { width: 16px; height: 16px; }
+body .upload-entry {
+  width: 100%; height: 36px; min-height: 36px; padding: 0 10px;
+  border-radius: 6px; border-color: #a17deb; background: var(--accent-solid);
+  color: #fff; font-size: 14px; font-weight: 600; box-shadow: none;
+}
+body .shell:has(.studio-work:not(.studio-import-page)) .upload-entry {
+  background: #30263f; border-color: #826799; color: #efe4ff;
+}
+body .shell:has(.studio-work:not(.studio-import-page)) .upload-entry:hover {
+  background: #40304f; border-color: #b797d0; color: #fff;
+}
+body .upload-destination { margin: 7px 0 13px; padding: 0 2px; line-height: 1.5; color: var(--muted); }
+body .task-sidebar .search {
+  height: 34px; padding: 0 9px; margin-bottom: 10px;
+  border: 1px solid #484151; border-radius: 6px; background: #111118;
+  font-size: 13px; box-shadow: none;
+}
+body .folder { margin: 8px 0 13px; }
+body .folder-head { min-height: 32px; padding: 5px 6px; font-size: 13px; color: #d6d1e1; }
+body .folder-head > span { display: flex; align-items: center; gap: 4px; min-width: 0; overflow: hidden; }
+body .folder-head .ui-icon { width: 14px; height: 14px; }
+body .folder-chevron { display: flex; flex: none; transform: rotate(-90deg); }
+body .folder-chevron.is-open { transform: none; }
+body .folder-name { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+body .folder-head.selected { color: #d4baff; }
+body .folder-head small { border: 0; background: #2b2733; padding: 0 5px; font-size: 13px; }
+body .folder .tm-task-row { margin: 4px 0 4px 9px; width: calc(100% - 9px); }
+body .folder .task {
+  padding: 8px 27px 8px 8px; border: 1px solid transparent;
+  border-radius: 6px; background: transparent; box-shadow: none;
+}
+body .folder .task.active {
+  background: #2e273e; border-color: transparent; box-shadow: inset 1px 0 0 #bd96ee;
+}
+body .folder .task:hover { background: #282431; border-color: transparent; }
+body .folder .task.active:hover { background: #362c48; }
+body .folder .task b {
+  display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2;
+  white-space: normal; overflow-wrap: anywhere; text-overflow: clip; overflow: hidden;
+  color: var(--body); font-size: 13px; font-weight: 500; line-height: 1.5;
+}
+body .folder .task.active b { color: #f3eaff; }
+body .folder .task small { margin-top: 3px; color: #b8b1c7; font-size: 13px; line-height: 1.5; }
+body .task .dot { width: 4px; height: 4px; }
+body .task .drag-handle .ui-icon { display: block; width: 12px; height: 16px; }
+body .tm-more { color: #c3bbd0; background: transparent; border-color: transparent; box-shadow: none; }
+body .tm-more .ui-icon { width: 16px; height: 16px; }
+body .tm-more:hover, body .tm-more[aria-expanded="true"] { background: #403448; color: #efdeff; }
+body .tm-task-menu button { display: flex; align-items: center; gap: 5px; }
+body .tm-task-menu button .ui-icon { width: 15px; height: 15px; }
+body .tm-trash-entry { margin-top: 16px; padding: 5px 7px; font-size: 13px; }
+body .aside-note { margin-top: 6px; padding: 11px 7px; border-top: 1px solid #36313f; font-size: 13px; line-height: 1.8; }
+
+/* The outline belongs to a control; quiet actions do not become more cards. */
+body button.ui-btn, body dialog button:where(:not(.preview, .wf-result-preview, .sp-thumb, .material-image, .ref-preview, .sp-chapter, .studio-clip, .new-options button)) {
+  border-color: var(--ui-control-border); background: var(--ui-control); box-shadow: none;
+  border-radius: 6px; font-weight: 500;
+}
+body button.ui-btn.ui-btn-sm { height: 32px; min-height: 32px; }
+body button.ui-btn.ui-btn-secondary { background: #292632; border-color: #5c5369; color: var(--body); }
+body button.ui-btn.ui-btn-secondary:hover:not(:disabled, [aria-disabled="true"]) { background: #38303f; border-color: #887797; color: #fff; }
+body button.ui-btn.ui-btn-primary, body dialog button.primary {
+  height: 36px; min-height: 36px; background: #8454e5; border-color: #a17de7;
+  color: #fff; font-weight: 600; box-shadow: inset 0 1px 0 #ffffff12;
+}
+body button.ui-btn.ui-btn-primary:hover:not(:disabled, [aria-disabled="true"]), body dialog button.primary:hover:not(:disabled) {
+  background: #9366ee; border-color: #c5a7fa; color: #fff;
+}
+body button.ui-btn.ui-btn-primary:active:not(:disabled), body dialog button.primary:active:not(:disabled) { background: #7544cf; }
+body .studio-command .gw-compose-bar button.ui-btn-primary { height: 36px; min-height: 36px; }
+body button.ui-btn.ui-btn-ghost, body dialog button.link, body dialog .dialog-head button.close {
+  border-color: transparent; background: transparent; color: var(--muted); box-shadow: none;
+}
+body button.ui-btn.ui-btn-ghost:hover:not(:disabled, [aria-disabled="true"]), body dialog button.link:hover:not(:disabled) {
+  border-color: transparent; background: #352e3f; color: var(--ink);
+}
+body button.ui-btn.ui-btn-danger, body dialog button.danger { background: #3b222f; border-color: #8e4f68; color: #f6b0c0; }
+body .wf-main .field-head button.ui-btn-ai { background: #292632; border-color: #5c5369; color: var(--body); }
+body .wf-main .field-head button.ui-btn-ai:hover:not(:disabled) { background: #38303f; border-color: #887797; }
+body select.ui-select, body dialog select { border-color: #5c5369; background-color: #191620; box-shadow: none; }
+body details.ui-menu > summary { border-color: #504859; background: #292431; color: var(--body); box-shadow: none; }
+body details.ui-menu > summary:hover, body details.ui-menu[open] > summary { background: #39303f; border-color: #887797; }
+body details.ui-menu > .studio-more-menu, body .tm-task-menu {
+  background: #2c2735; border-color: #61526e; box-shadow: 0 10px 24px #0008;
+}
+body button.ui-btn:disabled, body button.ui-btn[aria-disabled="true"], body .wf-main .field-head button.ui-btn-ai:disabled {
+  background: #25212c; border-color: #48404f; color: #a49aad; box-shadow: none; cursor: not-allowed;
+}
+body button.ui-btn.ui-btn-primary:disabled, body button.ui-btn.ui-btn-primary[aria-disabled="true"],
+body button.primary:disabled, body button.primary[aria-disabled="true"], body dialog button.primary:disabled {
+  background: #2b2b2b; border-color: #555; color: #b2b2b2; opacity: 1; box-shadow: none; cursor: not-allowed;
+}
+body button.ui-btn.ui-btn-ghost:disabled, body button.ui-btn.ui-btn-ghost[aria-disabled="true"] { background: transparent; border-color: transparent; color: #97899f; }
+
+/* Reference images remain quiet and keep their existing adjacent hover preview. */
+body .task-materials.studio-materials {
+  top: 56px; height: calc(100vh - 56px); background: var(--rail); border-left-color: #36333f;
+}
+body .studio-material-head { padding: 18px 12px 12px; gap: 6px; }
+body .studio-materials .studio-material-title h2 { font-size: 14px; color: #e5ddec; }
+body .studio-material-count { border: 0; background: #302938; color: #c3b6ce; }
+body .studio-material-tools { padding: 0 12px 11px; }
+body .studio-material-add {
+  min-height: 32px; padding: 5px 8px; border-color: #5c5369; border-radius: 6px;
+  background: #282331; color: var(--body); font-size: 13px; box-shadow: none;
+}
+body .studio-material-add:hover { background: #38303f; border-color: #887797; }
+body .studio-material-filters {
+  margin: 0 12px 0; padding: 3px; gap: 1px; background: #101017; border-color: #383240; border-radius: 6px;
+}
+body .studio-material-filters button { height: 30px; min-height: 30px; color: #bfb4cb; }
+body .studio-material-filters button.active, body .studio-material-filters button[aria-pressed="true"] {
+  background: #34263f; border-color: #665074; color: #e9d6ff; box-shadow: none;
+}
+body .studio-material-scroll { padding: 15px 12px; }
+body .studio-materials .studio-material-grid { gap: 15px 8px; }
+body .studio-materials .material-image { border: 1px solid #46404f; background: #101017; border-radius: 6px; box-shadow: none; }
+body .studio-materials .material-image:hover, body .studio-materials .material-image:focus-visible { border-color: #b08cda; box-shadow: none; }
+body .studio-materials .studio-material-name { color: #cbc1d6; margin-top: 5px; font-size: 13px; line-height: 1.5; }
+body .studio-material-hint { padding: 12px; border-top-color: #36313f; background: var(--rail); }
+body .studio-material-at { background: #2d2336; border-color: #5b426f; color: #d3b4ff; }
+body .studio-material-hint p { font-size: 13px; line-height: 1.7; color: var(--body); }
+body dialog { background: #25212f; border-color: #665674; box-shadow: 0 18px 60px #0009; }
+body dialog .dialog-head { border-color: #44384e; }
+body dialog .dialog-footer { background: #1c1724; border-color: #44384e; }
+
+@media (max-width: 1200px) {
+  body .shell { grid-template-columns: 180px minmax(0, 1fr); }
+  body header { gap: 22px; }
+}
+@media (max-width: 1100px) {
+  body .work-layout:has(.studio-work[data-workflow-tab="制作"]),
+  body .work-layout:has(.studio-work[data-workflow-tab="批量"]) { grid-template-columns: minmax(0, 1fr); }
+  body .work-layout:has(.wf-main[data-workflow-tab]) > .task-materials.studio-materials {
+    top: 56px; width: 220px; height: calc(100vh - 56px); border-left-color: #665674;
+  }
+}
+@media (max-width: 850px) {
+  body .shell { grid-template-columns: 164px minmax(0, 1fr); }
+  body header { gap: 14px; padding: 0 14px; }
+}
+@media (max-width: 650px) {
+  body header { height: 62px; padding: 0 12px; gap: 10px; }
+  body .brand { font-size: 18px; gap: 6px; }
+  body .brand em { font-size: 13px; }
+  body .brand-mark { width: 25px; height: 25px; }
+  body header nav { gap: 2px; }
+  body header nav button { height: 44px; min-height: 44px; min-width: 44px; padding: 0 7px; font-size: 13px; }
+  body header > .link { min-width: 44px; min-height: 44px; }
+  body .shell { display: block; }
+  body .task-sidebar { position: static; top: auto; height: auto; padding: 10px; border-right: 0; }
+  body .aside-head { margin-bottom: 0; gap: 5px; }
+  body .aside-head .link, body .tm-trash-entry, body .task-sidebar [data-action="undoTaskMove"] { min-height: 44px; min-width: 44px; }
+  body .upload-entry, body .task-sidebar .search { height: 44px; min-height: 44px; }
+  body .folder { margin: 0; }
+  body .folder-head { min-height: 44px; }
+  body .folder .tm-task-row { width: 180px; }
+  body .folder .tm-task-row .task { min-height: 44px; padding-right: 49px; }
+  body .tm-more { width: 44px; height: 44px; min-height: 44px; padding: 0; top: 3px; right: 0; }
+  body .tm-task-menu { top: 48px; }
+  body .tm-task-menu button { min-height: 44px; }
+  body button.ui-btn, body button.ui-btn.ui-btn-sm, body button.ui-btn.ui-btn-xs,
+  body button.ui-btn.ui-btn-primary, body dialog button.primary,
+  body .studio-command .gw-compose-bar button.ui-btn-sm, body .studio-prompt-meta button.ui-expand,
+  body details.ui-menu > summary, body details.ui-menu .studio-more-menu button,
+  body select.ui-select, body select.ui-select.ui-select-sm,
+  body .studio-shot-tools select.ui-select, body .studio-composer-tools select.ui-select,
+  body dialog button:where(:not(.preview, .wf-result-preview, .sp-thumb, .material-image, .ref-preview, .sp-chapter, .studio-clip, .new-options button)),
+  body dialog select, body dialog input:where(:not([type="checkbox"], [type="radio"])) {
+    height: 44px; min-height: 44px; min-width: 44px;
+  }
+  body button.ui-btn.ui-btn-icon, body dialog .dialog-head button.close { width: 44px; height: 44px; min-height: 44px; }
+  body .studio-command .gw-compose-bar button.ui-btn-primary { height: 44px; min-height: 44px; }
+  body .work-layout:has(.wf-main[data-workflow-tab]) > .task-materials.studio-materials {
+    top: 62px; height: calc(100vh - 62px);
+  }
+  body .studio-material-add, body .studio-material-filters button, body .studio-material-empty .link { min-height: 44px; min-width: 44px; }
+  body .studio-materials .material-close, body .studio-materials .material-remove { width: 44px; height: 44px; min-height: 44px; }
+}

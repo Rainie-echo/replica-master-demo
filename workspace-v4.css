@@ -1,0 +1,133 @@
+/* Full workspace direction: cinematic media, clear controls and restrained violet light. */
+body{background:#101018;color:#eeeef7}
+body .studio-work{background:radial-gradient(ellipse 75% 260px at 40% 0,#7560b51c,transparent),#101018}
+body .primary,body .ui-btn-primary{background:linear-gradient(135deg,#8964ff,#6033e9);border:1px solid #a489ff80;color:#fff;box-shadow:inset 0 1px #ffffff24,0 3px 12px #3c19872a}
+body .primary:hover,body .ui-btn-primary:hover{background:linear-gradient(135deg,#997aff,#7446f5)}
+body .primary:disabled{background:#343040;box-shadow:none;color:#9a93ab;border-color:#52495e}
+body .studio-task-heading h1{font-size:25px;line-height:34px;letter-spacing:-.4px}
+body .studio-command{position:static;background:#191822;border-color:#393445;flex-wrap:wrap}
+body .studio-command .gw-compose-bar{flex:1;min-width:240px}
+body .studio-command>.primary{margin-left:auto}
+body .studio-brief.brief{padding:14px 16px;background:linear-gradient(120deg,#25203365,#1b1b27);border:1px solid #403a51;border-radius:10px}
+body .studio-composer{border-color:#514962;background:#14141e}
+body .studio-brief-hint{font-size:12px}
+body .studio-sequence{background:none;border:0;padding:0}
+body .studio-sequence-head{margin:0}
+body .shot-card.studio-shot{background:#1b1b27;border-color:#494255;border-radius:11px;overflow:visible}
+body .shot-card.studio-shot:focus-within{border-color:#a079ff;box-shadow:0 0 0 1px #8e64ff33}
+body .shot-card .studio-shot-header{background:linear-gradient(110deg,#292334,#1b1b27);border-radius:11px 11px 0 0;padding:12px 16px}
+body .studio-shot-header .studio-cut-toggle{display:none}
+body .shot-card .studio-shot-body,body .shot-card.has-results .studio-shot-body{grid-template-columns:minmax(180px,26%) minmax(0,1fr);grid-template-areas:'media editor';gap:20px;padding:16px}
+body .shot-card .studio-shot-results,body .shot-card.has-results .studio-shot-results{border:0;border-top:1px solid #3b354a;padding:12px 0 0;margin-top:12px}
+body .shot-card .studio-preview-switch{display:flex;border:1px solid #5c506e;border-radius:7px;padding:3px;background:#12121d;gap:3px}
+body .shot-card .studio-preview-switch button{flex:1;border:0;border-radius:5px;height:32px;background:transparent;color:#ccc6dc}
+body .shot-card .studio-preview-switch button.active{background:linear-gradient(120deg,#926cff,#714bea);color:white}
+body .shot-card .studio-preview-switch button:disabled{opacity:.4;cursor:not-allowed}
+body .shot-card .studio-shot-media>.preview{width:100%;aspect-ratio:9/16;border:1px solid #51465f;border-radius:7px}
+body .studio-reference-section{margin-bottom:14px}
+body .studio-reference-section>.field-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+body .shot-card .studio-references{gap:10px;margin-top:0;align-items:flex-start;display:flex;flex-wrap:wrap}
+body .shot-card .studio-references .ref{position:relative;display:flex;flex-direction:column;align-items:flex-start;padding:0;background:transparent;width:88px;gap:4px;border:0}
+body .shot-card .studio-references .ref-preview,body .shot-card .studio-references .ref .mini{width:88px;height:96px;min-height:0;border-radius:6px;overflow:hidden;padding:0;border:1px solid #554b65}
+body .shot-card .studio-references .ref>span{font-size:12px;color:#b599ff;line-height:18px}
+body .shot-card .studio-references .ref small{font-size:12px;color:#ded9e9;max-width:88px}
+body .shot-card .studio-references .ref>.link{position:absolute;right:3px;top:3px;width:20px;height:20px;min-height:20px;background:#15121edb;border:1px solid #ffffff60;border-radius:50%;color:white;padding:0}
+body .shot-card .studio-prompt-frame{background:#13131d;border-color:#554964;border-radius:7px}
+body .shot-card .prompt{height:112px;min-height:112px;line-height:23px}
+body .shot-card .prompt.expanded{height:300px}
+body .studio-mouth{border:1px solid #443c53;border-radius:7px;padding:5px 10px;margin-top:10px;background:#181721}
+body .studio-mouth small{margin-left:10px;color:#b7b0c6}
+body .studio-mouth textarea{width:100%;min-height:100px;margin-top:8px;background:#11111a;border:1px solid #625274;padding:10px}
+body .studio-mouth details{margin:8px 0;font-size:13px}
+body .shot-card .studio-generation{margin-top:12px;gap:10px}
+body .shot-card .studio-shot-results .sp-strip{display:flex;flex-wrap:wrap;gap:10px;overflow:visible}
+body .shot-card .studio-shot-results .sp-version{width:104px;flex:0 0 104px;padding:5px;background:#16151f;border-color:#40364e}
+body .shot-card .studio-shot-results .sp-version.picked{border-color:#a681ff;background:#2d2244;box-shadow:0 0 0 1px #a681ff55}
+body .shot-card .studio-shot-results .sp-version>.sp-thumb{width:60px}
+body .shot-card .sp-select-thumb .sp-thumb-visual{width:60px;height:106.67px}
+body .studio-card-footer{display:flex;justify-content:space-between;align-items:center;padding:10px 16px;border-top:1px solid #3c354b;background:#171620;border-radius:0 0 11px 11px}
+body .studio-source-disclosure{padding:16px;border-top:1px solid #463c55}
+body .studio-status.ready{color:#88dfad;background:#23453366}
+body .task-sidebar .task.active{background:linear-gradient(100deg,#483169,#2b233d);border-color:#74589c}
+@container shot-card (max-width:650px){body .shot-card .studio-shot-body,body .shot-card.has-results .studio-shot-body{grid-template-columns:1fr;grid-template-areas:'media' 'editor'}body .shot-card .studio-shot-media{width:min(230px,100%)}body .shot-card .studio-references .ref{width:80px}body .shot-card .studio-references .ref-preview,body .shot-card .studio-references .ref .mini{width:80px;height:90px}body .studio-card-footer{gap:10px;flex-wrap:wrap}}
+body .studio-compact-nav{display:flex;gap:5px;margin-top:8px}body .studio-compact-nav button{min-width:30px;min-height:28px;padding:2px 7px;background:#211d2b;border:1px solid #40364e;color:#c7badc;border-radius:5px;font-size:12px}
+body .studio-work .primary,body .task-sidebar .upload-entry,body button.ui-btn.ui-btn-primary{background:linear-gradient(135deg,#8964ff,#6033e9)!important;border:1px solid #a489ff80!important;box-shadow:inset 0 1px #ffffff24,0 3px 12px #3c19872a!important;color:#fff!important}
+body .studio-work .primary:disabled{background:#343040!important;color:#9a93ab!important;box-shadow:none!important}
+body .shot-card .studio-preview-switch button.active{background:linear-gradient(120deg,#926cff,#714bea)!important;color:white!important}
+body .shot-card .studio-references .ref .mini{display:block;position:relative;inset:auto;transform:none}
+body .shot-card .studio-references .ref-preview>.mini{width:100%!important;min-width:100%!important;max-width:100%!important;height:100%!important;max-height:none!important;flex:none;object-fit:cover;background-size:400% 300%;border:0}
+body .shot-card .studio-references .ref-preview{display:block!important;max-width:none!important}
+body .studio-compact-nav{gap:8px;overflow-x:auto;padding:2px 0 5px}
+body .studio-compact-nav button{display:flex;align-items:center;gap:8px;min-width:150px;text-align:left;padding:7px;background:#211d2b;border-color:#51445f;flex-shrink:0}
+body .studio-compact-nav b{font-size:12px;display:block;color:#ece5f7}body .studio-compact-nav small{display:block;color:#aaa0ba;font-size:11px}
+body .nav-shot-image{display:block;width:28px;height:49.78px;position:relative;overflow:hidden;border-radius:4px;flex:none}
+body .nav-shot-image>*{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+body .reference-drop-target{outline:2px dashed #b391ff;outline-offset:-4px;background:#332546!important}
+body .prompt-edit-surface{position:relative}
+body .shot-card .prompt-edit-surface textarea.prompt{position:relative;z-index:1;background:transparent;color:transparent;caret-color:#fff}
+body .prompt-token-layer{position:absolute;inset:0;z-index:2;pointer-events:none;white-space:pre-wrap;overflow:hidden;padding:10px 12px 6px;font:14px/23px 'PingFang SC','Microsoft YaHei',sans-serif;color:#eee6f6;overflow-wrap:break-word;border:1px solid transparent}
+body .prompt-image-token{pointer-events:auto;color:#bca0ff;background:#8d60ee1f;border-radius:3px;cursor:default}
+body .studio-cuts{margin:0;padding:12px 16px!important;border-top:1px solid #51425e;background:#211c2b}
+body .material-image[draggable=true]{cursor:grab}
+/* Folder headers and child tasks have distinct shapes, icons and hierarchy. */
+body .task-sidebar .folder{margin:12px 0 16px}
+body .task-sidebar .folder-head{display:flex;align-items:center;justify-content:space-between;width:100%;min-height:40px;padding:8px;background:#26212f;border:1px solid #453c53;border-radius:7px;color:#eee6f8;font-weight:650;font-size:13px}
+body .task-sidebar .folder-head.selected{background:linear-gradient(110deg,#33283f,#26212f);border-color:#68517f;color:#fff}
+body .task-sidebar .folder-head>span{gap:7px}
+body .task-sidebar .folder-head>span>.ui-icon{color:#c1a0ff;width:18px;height:18px;fill:#ab82e326}
+body .task-sidebar .folder-head small{background:#11101880;border:1px solid #635273;border-radius:5px;min-width:22px;text-align:center;color:#d7c4f0;font-size:11px;font-weight:500}
+body .task-sidebar .folder-children{position:relative;margin:8px 0 0 10px;padding-left:10px;border-left:1px solid #544361}
+body .task-sidebar .folder .tm-task-row{display:block;position:relative;margin:6px 0;width:100%}
+body .task-sidebar .folder .tm-task-row:before{content:'';position:absolute;left:-11px;top:20px;width:10px;border-top:1px solid #544361}
+body .task-sidebar .folder .tm-task-row .task{position:relative;background:transparent;border:1px solid transparent;border-radius:6px;padding:8px 26px 8px 23px;min-height:62px;text-align:left}
+body .task-sidebar .folder .task:hover{background:#28232e;border-color:#42384d}
+body .task-sidebar .folder .task.active{background:#443058;border-color:#8461ae;box-shadow:inset 3px 0 #ba8aff}
+body .task-sidebar .folder .task b{font-size:12px;line-height:18px;font-weight:500;color:#dad3e5;white-space:normal;display:block;padding:0}
+body .task-sidebar .folder .task.active b{color:#fff;font-weight:600}
+body .task-sidebar .folder .task small{font-size:11px;line-height:16px;color:#aea2bd;margin-top:3px}
+body .tm-task-symbol{position:absolute;left:6px;top:10px;color:#9c8aaf;display:flex}
+body .tm-task-symbol .ui-icon{width:12px;height:12px}
+body .task.active .tm-task-symbol{color:#d4b0ff}
+body .task-sidebar .drag-handle{left:-18px;top:27px;opacity:0}
+body .task-sidebar .tm-task-row:hover .drag-handle{opacity:1}
+body .task-sidebar .tm-more{right:3px;top:7px;color:#a697b9}
+body .task-sidebar .folder-empty{margin:7px 0;font-size:11px;color:#92839f;padding-left:4px}
+/* A persistent shot navigator; image references stay scoped to the current shot. */
+body .studio-sequence{position:sticky;top:56px;z-index:9;padding:10px 12px;background:#17151ff5;border:1px solid #4d3b62;border-radius:9px;box-shadow:0 6px 18px #0005;backdrop-filter:blur(12px);margin-bottom:16px}
+body .studio-sequence-head h2{font-size:14px}
+body .studio-sequence-head h2>span{font-size:12px;color:#aca0be}
+body .studio-compact-nav{margin-top:7px;gap:6px;scrollbar-width:thin}
+body .studio-compact-nav button{flex:1 0 144px;min-width:144px;max-width:190px;background:#211d2b;border-color:#44354f;padding:6px}
+body .studio-compact-nav button>span:last-child{min-width:0}
+body .studio-compact-nav b{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+body .studio-compact-nav button.is-current{background:linear-gradient(110deg,#48315f,#30223e);border-color:#b68cff;box-shadow:inset 3px 0 #b68cff}
+body .nav-shot-status{margin-left:4px;color:#b6a9c7;font-weight:500}
+body .nav-shot-status.ready,body .nav-shot-status.source{color:#88dbac}
+body .nav-shot-status.review{color:#edbd75}
+body .nav-shot-status.busy{color:#bda0ff}
+body .shot-card.studio-shot{scroll-margin-top:190px}
+body .shot-card .studio-references{margin-bottom:12px;padding:0;border:0;background:none}
+body .shot-card .studio-references .ref>span{display:flex;flex-direction:column;font-size:11px}
+body .shot-card .studio-references .ref small{order:-1;font-size:12px}
+@media(max-width:650px){body .studio-sequence{top:62px;padding:8px}body .studio-sequence-head{gap:6px}body .studio-sequence-head .row{gap:4px}body .studio-sequence-head h2>span{display:none}body .studio-compact-nav button{flex-basis:135px;min-width:135px}body .shot-card.studio-shot{scroll-margin-top:200px}}
+/* Compact locator: only shot number, thumbnail and status. */
+body .studio-sequence{padding:7px 10px}
+body .studio-sequence-head h2{font-size:13px}
+body .studio-sequence-head h2>span{display:none}
+body .studio-sequence-head .ui-btn{height:26px;min-height:26px;font-size:11px;padding:2px 7px}
+body .studio-compact-nav{margin-top:5px;gap:5px;padding-bottom:2px}
+body .studio-compact-nav button{flex:0 0 100px;min-width:100px;max-width:100px;padding:4px 6px;gap:6px;min-height:40px}
+body .studio-compact-nav .nav-shot-image{width:18px;height:32px}
+body .studio-compact-nav b{font-size:12px;line-height:16px}
+body .studio-compact-nav small.nav-shot-status{margin-left:0;font-size:10px;line-height:15px}
+body .shot-card.studio-shot{scroll-margin-top:158px}
+@media(max-width:650px){body .studio-compact-nav button{flex-basis:88px;min-width:88px;max-width:88px}body .shot-card.studio-shot{scroll-margin-top:170px}}
+body .studio-sequence-head .studio-generate-all.ui-btn{height:34px;min-height:34px;padding:0 13px;font-size:13px;font-weight:600;margin-left:6px;border-radius:6px}
+@media(max-width:650px){body .studio-sequence-head{flex-wrap:wrap}body .studio-sequence-head>.row{margin-left:auto}body .studio-sequence-head .studio-generate-all.ui-btn{height:34px;min-height:34px;padding:0 9px;font-size:12px;margin-left:2px}}
+body .independent-upload{display:flex;align-items:center;justify-content:space-between;gap:12px;border:1px dashed #80639f;background:#2b203933;border-radius:7px;padding:12px;margin-bottom:12px}
+body .independent-upload b{display:block;font-size:13px;overflow-wrap:anywhere}body .independent-upload small{display:block;color:#aea0bf;font-size:12px;margin-top:4px}
+body .independent-upload label{cursor:pointer;flex:none}
+body .independent-preview{width:100%;aspect-ratio:9/16;overflow:hidden;border:1px solid #59436d;border-radius:7px;background:#14121c;display:block}
+body .independent-preview video,body .independent-preview img{width:100%;height:100%;object-fit:contain}
+body .independent-empty{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;height:100%;width:100%;color:#ab91c8}
+body .independent-empty svg{width:32px;height:32px}body .independent-empty small{font-size:12px;color:#9988ab}

@@ -1,0 +1,52 @@
+/* Reference images form a quiet shelf, separate from the production canvas. */
+body .task-materials.studio-materials {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  height: calc(100vh - 70px);
+  background: var(--canvas);
+  border-left: 1px solid var(--line);
+  overflow: hidden;
+}
+body .work-layout:has(.wf-main[data-workflow-tab])>.task-materials.studio-materials { display: flex; }
+.studio-material-head { display: flex; justify-content: space-between; align-items: center; padding: 21px 14px 14px; gap: 8px; }
+.studio-material-title { display: flex; align-items: center; gap: 7px; min-width: 0; }
+.studio-material-title>svg { width: 17px; height: 17px; fill: none; stroke: var(--muted); stroke-width: 1.3; flex: none; }
+.studio-materials .studio-material-title h2 { color: var(--ink); font-size: 14px; font-weight: 600; white-space: nowrap; }
+.studio-material-count { background: var(--surface); color: var(--muted); border: 1px solid var(--line); border-radius: 5px; padding: 0 5px; font-size: 13px; line-height: 18px; }
+.studio-materials .material-close { margin: 0; width: 24px; height: 24px; padding: 0; font-size: 19px; color: var(--muted); }
+.studio-material-tools { padding: 0 14px 14px; }
+.studio-material-add { width: 100%; display: flex; align-items: center; justify-content: center; gap: 5px; border-radius: 7px; padding: 8px 9px; font-size: 14px; color: var(--body); border-color: var(--line); background: var(--surface-raised); box-shadow: inset 0 1px 0 #ffffff08; }
+.studio-material-add>span { font-size: 17px; line-height: 17px; font-weight: 400; }
+.studio-material-add:hover { background: var(--surface-raised); border-color: var(--line-strong); }
+.studio-material-filters { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 4px; padding: 0 10px 12px; border-bottom: 1px solid var(--line); }
+.studio-material-filters button { background: transparent; border-color: var(--line); box-shadow: none; padding: 6px 2px; font-size: 14px; border-radius: 5px; color: var(--muted); }
+.studio-material-filters button:hover { color: var(--ink); background: var(--surface); }
+.studio-material-filters button.active { background: var(--pale); border-color: var(--line); color: var(--accent); box-shadow: inset 0 1px 0 #ffffff06; }
+.studio-material-scroll { flex: 1; min-height: 0; overflow-y: auto; padding: 16px 12px; overscroll-behavior: contain; }
+.studio-materials .studio-material-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 17px 10px; max-height: none; overflow: visible; }
+.studio-material-picture { position: relative; }
+.studio-materials .material-image { width: 100%; padding: 0; border: 1px solid var(--line); border-radius: 7px; background: var(--surface-input); overflow: hidden; box-shadow: 0 2px 8px #00000025; }
+.studio-materials .material-image .asset-photo { position: static; display: block; width: 100%; height: auto; aspect-ratio: 1; object-fit: cover; border-radius: 0; transform: none; margin: 0; background-color: var(--surface-input); }
+.studio-materials .material-image:hover, .studio-materials .material-image:focus-visible { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent), 0 4px 16px #0005; }
+.studio-materials .studio-material-name { display: block; margin-top: 6px; color: var(--body); font-size: 13px; line-height: 1.5; overflow-wrap: anywhere; }
+.studio-materials .material-remove { position: absolute; top: 4px; right: 4px; width: 20px; height: 20px; padding: 0; display: grid; place-items: center; border: 1px solid #c4c4d2; border-radius: 5px; color: var(--ink); background: #111116e6; backdrop-filter: blur(8px); font-size: 15px; line-height: 1; opacity: 0; pointer-events: none; }
+.studio-material-picture:hover .material-remove, .studio-material-picture:focus-within .material-remove { opacity: 1; pointer-events: auto; }
+.studio-materials .material-remove:hover { background: #713e54; border-color: #c57591; color: #fff; }
+.studio-material-empty { padding: 28px 4px; color: var(--muted); font-size: 13px; text-align: center; }
+.studio-material-empty .link { margin-top: 9px; }
+.studio-material-hint { display: flex; gap: 8px; flex: none; padding: 13px 12px 16px; border-top: 1px solid var(--line); background: var(--canvas); }
+.studio-material-at { display: grid; place-items: center; width: 26px; height: 26px; flex: none; border: 1px solid var(--line); background: var(--surface); border-radius: 6px; color: var(--accent); font-size: 15px; }
+.studio-material-hint p { margin: 0; font-size: 13px; line-height: 1.8; color: var(--body); }
+.studio-material-hint p b { font-weight: 500; color: var(--accent); }
+.studio-material-hint p span { color: var(--muted); }
+@media (max-width:1100px) {
+  body .work-layout:has(.wf-main[data-workflow-tab])>.task-materials.studio-materials { display: none; position: fixed; top: 70px; right: 0; width: 220px; height: calc(100vh - 70px); margin: 0; z-index: 30; border-left: 1px solid var(--line-strong); border-top: 0; box-shadow: -16px 0 40px #0009; }
+  body .work-layout:has(.wf-main[data-workflow-tab])>.task-materials.studio-materials.open { display: flex; }
+  .studio-materials .material-close { display: block; }
+}
+@media (max-width:650px) {
+  body .work-layout:has(.wf-main[data-workflow-tab])>.task-materials.studio-materials { top: 62px; height: calc(100vh - 62px); }
+}
+@media (hover:none) { .studio-materials .material-remove { opacity: 1; pointer-events: auto; } }

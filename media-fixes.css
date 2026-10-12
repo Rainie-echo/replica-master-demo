@@ -1,0 +1,19 @@
+/* Adjacent media previews and the five explicit review labels. */
+.sp-label{font-size:14px;font-weight:650;border-radius:4px!important;padding:4px 5px!important}
+.sp-label[data-label="待预览"]{color:#667085;background:#f1f3f6;border-color:#cfd5dd!important}
+.sp-label[data-label="待选用"]{color:#315fc4;background:#edf3ff;border-color:#aac3f3!important}
+.sp-label[data-label="已选用"]{color:#1f7a49;background:#e9f7ef;border-color:#91cfad!important}
+.sp-label[data-label="需修改"]{color:#a45c05;background:#fff4dd;border-color:#eac07a!important}
+.sp-label[data-label="已弃用"]{color:#b34349;background:#ffeff0;border-color:#e7a6aa!important}
+.sp-generate-action{grid-column:1/-1;display:flex;justify-content:flex-end;padding-top:4px}
+.sp-original-source{font-size:13px;grid-column:1/-1;text-align:right;margin:2px 0}
+.wf-ref,.ref-preview{position:relative}
+[data-sp-image-hover]>.wf-reference-zoom{display:none!important}
+.sp-image-hover{position:fixed;z-index:110;padding:6px;background:white;border:1px solid #dbe1eb;border-radius:6px;box-shadow:0 8px 28px #0008;pointer-events:none;box-sizing:border-box}
+.sp-image-hover>.sp-reference-image{display:block;width:100%;height:100%;border-radius:3px;object-fit:contain;position:relative;inset:auto}
+.sp-image-hover>.sp-reference-image.atlas{background-size:400% 300%;background-repeat:no-repeat}
+.sp-hover{box-sizing:border-box;z-index:110;overflow:hidden}
+.sp-inline-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:2;pointer-events:none}
+.preview.sp-playing>.play{display:none}
+.preview.sp-playing>.duration{z-index:3}
+.sp-thumb>.shot-photo.atlas{position:absolute;left:-38.89%;top:0;width:177.78%;height:100%;aspect-ratio:1/1;transform:none}
