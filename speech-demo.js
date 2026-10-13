@@ -4,11 +4,19 @@ function installMedicalDemo(){
  const old=state.tasks.find(t=>t.id==='dialogue-demo');if(!old)return;
  if(!old.medicalSpeechDemo)state.speechDemoBackup=cloneWorkflow(old);
  const folder=state.folders.find(f=>f.name==='医美')||{id:'medical',name:'医美',open:true};if(!state.folders.includes(folder))state.folders.push(folder);folder.open=true;
- const assets=[['med-host','女主参考图','主播',2],['med-host-b','女主参考B','主播',3],['med-consultant','顾问参考图','人物',0],['med-clinic','医美机构图','场景',null],['med-clinic-b','明亮面诊室','场景',null],['med-opening','面部示意画面','原片记录',null]].map(([id,name,role,tile])=>({id,name,role,tile,type:'image',builtin:true,url:tile===null?''+(id==='med-opening'?'medical-opening.svg':'medical-clinic.svg'):'family-reference-sheet.png',source:'医美口播 · 内置示意素材',tags:'内置示意，用于交互演示'}));
- for(const a of assets)if(!state.assets.some(x=>x.id===a.id))state.assets.push(a);
- if(old.medicalSpeechDemo){if(!old.parsed)old.shots.forEach(s=>s.speechEditorOpen=false);save();return;}
+ const assets=[['med-host','女主参考图','主播','host'],['med-host-b','女主参考B','主播','host-b'],['med-consultant','顾问参考图','人物','consultant'],['med-clinic','医美机构图','场景','clinic'],['med-clinic-b','明亮面诊室','场景','clinic-b'],['med-opening','面部示意画面','原片记录','opening']].map(([id,name,role,file])=>({id,name,role,type:'image',builtin:true,url:'medical-'+file+'-v1.jpg',source:'医美口播 · 内置示意素材',tags:'AI生成示意，用于交互演示'}));
+ for(const a of assets){const existing=state.assets.find(x=>x.id===a.id);if(!existing)state.assets.push(a);else if(existing.builtin!==false){Object.assign(existing,a);delete existing.tile;}}
+ if(old.medicalSpeechDemo){upgradeMedicalCovers(old);if(!old.parsed)old.shots.forEach(s=>s.speechEditorOpen=false);save();return;}
  const t=makeTask('dialogue-demo','YM-01',old.time);Object.assign(t,{medicalSpeechDemo:true,mode:'replace',folder:folder.id,sourceParsed:true,gated:false,phase:'template',demoFamily:false,assets:assets.map(a=>a.id),speechVariants:[],activeSpeechId:null,stage:'需求待填写',medicalCutSeconds:{1:4,2:8,3:7.5}});
- t.shots=MEDICAL_VISUALS.map((description,i)=>({id:i,uid:workflowId(),medicalSpeech:true,cuts:[i+1],description,person:i===0?'无出镜口播人物':i===1?'女主、顾问':'女主',scene:'医美机构',speech:MEDICAL_DIALOGUE[i],caption:'口播字幕、底部小字',prompt:'',newSpeech:'',refs:[],method:'pending',manual:false,open:false,candidates:[],thumb:i===0?'med-opening':'med-host',speechSeconds:[4,8,7.5][i]}));workflowState(t);state.tasks[state.tasks.indexOf(old)]=t;save();
+ t.shots=MEDICAL_VISUALS.map((description,i)=>({id:i,uid:workflowId(),medicalSpeech:true,cuts:[i+1],demoCoverKey:['medical-opening','medical-consultation','medical-presenter'][i],description,person:i===0?'无出镜口播人物':i===1?'女主、顾问':'女主',scene:'医美机构',speech:MEDICAL_DIALOGUE[i],caption:'口播字幕、底部小字',prompt:'',newSpeech:'',refs:[],method:'pending',manual:false,open:false,candidates:[],thumb:i===0?'med-opening':'med-host',speechSeconds:[4,8,7.5][i]}));workflowState(t);state.tasks[state.tasks.indexOf(old)]=t;save();
+}
+// Upgrade only presentation metadata, including existing version snapshots.
+// Prompts, references, selections, timestamps and generated results stay intact.
+function upgradeMedicalCovers(t){
+ const keys=['medical-opening','medical-consultation','medical-presenter'];
+ const seen=new WeakSet();
+ function visit(value){if(!value||typeof value!=='object'||seen.has(value))return;seen.add(value);if(Array.isArray(value.cuts)&&!value.independent){const n=value.cuts[0];if(n>=1&&n<=3&&(!value.demoCoverKey||value.demoCoverKey.startsWith('medical-')))value.demoCoverKey=keys[n-1];}Object.values(value).forEach(visit);}
+ visit(t);
 }
 installMedicalDemo();
 function medicalPrompt(s,text){

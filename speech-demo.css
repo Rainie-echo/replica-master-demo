@@ -2,4 +2,6 @@
 
 .medical-result-speech{display:inline-block;margin-top:6px;padding:3px 8px;border:1px solid #665085;border-radius:5px;color:#d0aff9;background:#40256055}.speech-source-choice{padding:12px;font-size:13px;color:#d3c9e3}.speech-source-choice button{margin-top:8px;font-size:12px}
 
-body:has([data-med-fit]) .reference-current-shot .studio-references .ref small{display:block!important;font-size:10px;max-width:62px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:#b9acce}body:has([data-med-fit]) .reference-current-shot .studio-references .ref>span{font-size:11px;color:#ceb2f1}
+body:has([data-med-fit]) .reference-current-shot .studio-references .ref small{display:block!important;font-size:12px;max-width:96px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:#d2c4e3}body:has([data-med-fit]) .reference-current-shot .studio-references .ref>span{font-size:12px;color:#dfc8ff}
+/* Final override: keep image, drag handle and state readable in the mobile rail. */
+@media(max-width:700px){body .reference-shot-items .reference-nav-item{flex:0 0 180px!important;min-width:180px}body .reference-nav-state .studio-status{font-size:12px;line-height:18px}}

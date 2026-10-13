@@ -53,6 +53,9 @@ function shotCoverAsset(s,t=task()){
   const original=state.assets.find(a=>a.id===s?.thumb);
   if(!s)return original;
   if(s.independent)return s.sourcePoster?{url:s.sourcePoster,name:s.description||'独立视频'}:null;
+  const medicalFiles={'medical-opening':'opening','medical-consultation':'consultation','medical-presenter':'presenter'};
+  const medicalFile=medicalFiles[s.demoCoverKey];
+  if(medicalFile)return {url:'medical-'+medicalFile+'-v1.jpg',name:s.description||'医美分镜示意'};
   const key=s.demoCoverKey||(t?.demoFamily?FAMILY_SCENE_KEYS[s.sourceIndex??FAMILY_DESCRIPTIONS.indexOf(s.description)]:null);
   if(key==='product-original')return state.assets.find(a=>a.id==='family-image-9')||original;
   if(key==='games-original')return state.assets.find(a=>a.id==='family-game-original')||original;
